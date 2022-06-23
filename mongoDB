@@ -1,0 +1,158 @@
+
+
+                              Checkpoint Mongo DB
+
+
+
+**************************Create a database called "contact"**************************
+
+                                 use "contact"
+
+
+************************Create a collection called "contactlist"***************************
+
+
+                           
+                           db.createCollection("contactlist")
+
+
+
+********************Insert these documents  in "contactlist"*********************************
+
+                        
+                        
+                        db.contactList.insertMany(
+{"Lastname": "Ben Lahmer", "Firstname": "Fares", "Email": "fares@gmail.com", age:26},
+{"Lastname": "Kefi", "Firstname": "Seif", "Email": "kefi@gmail.com", "age":15},
+{"Lastname": "Fatnassi", "First name": "Sarra", "Email": "sarra.f@gmail.com", "age":40},
+{"Lastname": "Ben Yahia", "Firstname": "Rym", "age":4},
+{"Lastname": "Cherif", "Firstname": "Sami", "age":3})
+
+
+
+**************Display all the information about only one person using his id*****************
+
+
+
+                         db.contactList.find({ "_id" : 2})
+                         
+                         
+{ "_id" : 2, "Lastname" : "Kefi", "Firstname" : "Anis", "Email" : "kefi@gmail.com", "age" : 15 }
+
+
+
+
+ ****************************Display all the contact list having age>18*************************
+ 
+ 
+                             db.contactlist.find({ age :{$gt:18}})
+
+
+{ "_id" : 1, "Lastname" : "Ben Lahmer", "Firstname" : "Fares", "Email" : "fares@gmail.com", "age" : 26 }
+{ "_id" : 3, "Lastname" : "Fatnassi", "Firstname" : "Sarra", "Email" : "sarra.f@gmail.com", "age" : 40 }
+
+
+
+
+
+*********************Display all the contact list having age>18 and name containing "ah"********
+
+
+
+                       db.contactlist.find({"age":{$gt:18},"Lastname": /ah/})
+                       
+                       
+                       
+{ "_id" : 1, "Lastname" : "Ben Lahmer", "Firstname" : "Fares", "Email" : "fares@gmail.com", "age" : 26 }
+
+
+
+
+
+******************Change the contact first name of "kefi Seif" by "Kefi Anis"****************
+                       
+                       
+ 
+                   db.contactlist.update({"Lastname":"Kefi"},{$set:{"Firstname":"Anis"}})
+
+ 
+ 
+ 
+ { "_id" : 2, "Lastname" : "Kefi", "Firstname" : "Anis", "Email" : "kefi@gmail.com", "age" : 15 }
+           
+           
+           
+**************************Delete the contacts that are aged under <5*****************           
+                       
+                       
+                       
+                         db.contactlist.remove({"age":{$lt:5}})
+                       
+                       
+
+{ "_id" : 1, "Lastname" : "Ben Lahmer", "Firstname" : "Fares", "Email" : "fares@gmail.com", "age" : 26 }
+{ "_id" : 2, "Lastname" : "Kefi", "Firstname" : "Anis", "Email" : "kefi@gmail.com", "age" : 15 }
+{ "_id" : 3, "Lastname" : "Fatnassi", "Firstname" : "Sarra", "Email" : "sarra.f@gmail.com", "age" : 40 }
+ 
+
+ 
+ 
+*****************************Display all of the contacts list*********************************
+
+                                   db.contactlist.find()
+                                   
+                                                                
+                                   
+{ "_id" : 1, "Lastname" : "Ben Lahmer", "Firstname" : "Fares", "Email" : "fares@gmail.com", "age" : 26 }
+{ "_id" : 2, "Lastname" : "Kefi", "Firstname" : "Anis", "Email" : "kefi@gmail.com", "age" : 15 }
+{ "_id" : 3, "Lastname" : "Fatnassi", "Firstname" : "Sarra", "Email" : "sarra.f@gmail.com", "age" : 40 }
+> 
+ 
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
